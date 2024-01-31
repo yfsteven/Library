@@ -1,31 +1,37 @@
 const showBtn = document.getElementById("show-dialog");
 const dialog = document.getElementById("dialog");
-const jsCloseBtn = dialog.querySelector("#js-close");
+const submitBtn = document.getElementById("submit-form");
 
-const input = document.querySelectorAll('input');
 
-input.forEach( (element) => {element.addEventListener("input", event =>{
-    console.log(event.target.value)
-})
-})
+const cAuthor = document.getElementById("author");
+const cTitle = document.getElementById("title");
+const cPages = document.getElementById("pages");
+const cStatus = document.getElementById("status");
+
+const myLibrary = [];
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addBookToLibrary(cAuthor.value, cTitle.value, cPages.value, cStatus.value);
+  dialog.close();
+});
 
 showBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
-jsCloseBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  dialog.close();
-});
 
-/*
-const myLibrary = [];
-
-function Book() {
-
+function Book(author, title, numPages, isFinished) {
+  this.author = author;
+  this.title = title;
+  this.numPages = numPages;
+  this.isFinished = isFinished;
 }
 
-function addBookToLibrary() {
-
+function addBookToLibrary(a, b, c, d) {
+  const book = new Book(a, b, c, d);
+  myLibrary.push(book);
+  console.log(myLibrary);
 }
-*/
+
+

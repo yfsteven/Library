@@ -12,29 +12,24 @@
           <p>
             <label>
               Author:
-              <input type="text" required />
+              <input type="text" id="author" required />
             </label>
             <label>
                 Title:
-                <input type="text" required />
+                <input type="text" id="title" required />
               </label>
               <label>
                 Number of Pages:
-                <input type="text" required />
+                <input type="text" id="pages" required />
               </label>
               <label>
                 Status:
-                <input type="text" required />
+                <input type="text" id="status" required />
               </label>
           </p>
           <div>
-            <input type="submit" id="normal-close" value="Normal close" />
-            <input
-              type="submit"
-              id="novalidate-close"
-              value="Novalidate close"
-              formnovalidate />
-            <input type="submit" id="js-close" value="JS close" />
+            <input type="submit" id="normal-close" value="normal-close" />
+            <input type="submit" id="submit-form" />
           </div>
         </form>
       </dialog>
