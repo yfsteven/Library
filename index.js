@@ -1,7 +1,9 @@
 const showBtn = document.getElementById("show-dialog");
 const dialog = document.getElementById("dialog");
-const submitBtn = document.getElementById("submit-form");
+const submitBtn = document.querySelector("form");
+const closeBtn = document.getElementById("normal-close");
 
+const booksContainer = document.getElementById("books-container");
 
 const cAuthor = document.getElementById("author");
 const cTitle = document.getElementById("title");
@@ -10,16 +12,28 @@ const cStatus = document.getElementById("status");
 
 const myLibrary = [];
 
-submitBtn.addEventListener("click", (e) => {
+/*for(let i = 0; i < myLibrary.length; i++){
+
+  const div = document.createElement("div");
+  div.className = "book-info";
+  div.innerHTML = `<h1>${myLibrary[i].author}</h1><h1>${myLibrary[i].title}</h1><h1>${myLibrary[i].numPages}</h1><h1>${myLibrary[i].isFinished}</h1> `;
+
+  booksContainer.appendChild(div);
+}*/
+
+
+submitBtn.addEventListener("submit", (e) => {
   e.preventDefault();
   addBookToLibrary(cAuthor.value, cTitle.value, cPages.value, cStatus.value);
-  dialog.close();
 });
 
 showBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
+closeBtn.addEventListener("click", () => {
+  dialog.close();
+})
 
 function Book(author, title, numPages, isFinished) {
   this.author = author;
