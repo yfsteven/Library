@@ -12,19 +12,26 @@ const cStatus = document.getElementById("status");
 
 const myLibrary = [];
 
-/*for(let i = 0; i < myLibrary.length; i++){
 
-  const div = document.createElement("div");
-  div.className = "book-info";
-  div.innerHTML = `<h1>${myLibrary[i].author}</h1><h1>${myLibrary[i].title}</h1><h1>${myLibrary[i].numPages}</h1><h1>${myLibrary[i].isFinished}</h1> `;
+const displayData = () => {
+  booksContainer.innerHTML ="";
+  for(let i = 0; i < myLibrary.length; i++){
 
-  booksContainer.appendChild(div);
-}*/
+    const div = document.createElement("div");
+    div.className = "book-info";
+    div.innerHTML = `<div class="book-info"><h1>${myLibrary[i].author}</h1><h1>${myLibrary[i].title}</h1><h1>${myLibrary[i].numPages}</h1><h1>${myLibrary[i].isFinished}</h1></div>`;
+  
+    booksContainer.appendChild(div);
+  }
+}
+
+
 
 
 submitBtn.addEventListener("submit", (e) => {
   e.preventDefault();
   addBookToLibrary(cAuthor.value, cTitle.value, cPages.value, cStatus.value);
+  displayData();
 });
 
 showBtn.addEventListener("click", () => {
