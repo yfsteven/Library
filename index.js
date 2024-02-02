@@ -12,21 +12,21 @@ const cStatus = document.getElementById("status");
 
 const myLibrary = [];
 
+const removeBook = (thatBook) => {
+  myLibrary.splice(thatBook, 1);
+  displayData();
+}
+
 
 const displayData = () => {
   booksContainer.innerHTML ="";
   for(let i = 0; i < myLibrary.length; i++){
-
     const div = document.createElement("div");
     div.className = "book-info";
-    div.innerHTML = `<div class="book-info"><h1>${myLibrary[i].author}</h1><h1>${myLibrary[i].title}</h1><h1>${myLibrary[i].numPages}</h1><h1>${myLibrary[i].isFinished}</h1></div>`;
-  
+    div.innerHTML = `<div class="book-info"><h1>Author: ${myLibrary[i].author}</h1><h1>Title: ${myLibrary[i].title}</h1><h1>${myLibrary[i].numPages} Pages</h1><h1>Status: ${myLibrary[i].isFinished}</h1><button class="button-4" onclick="removeBook(${i})">Delete</button></div>`;
     booksContainer.appendChild(div);
   }
 }
-
-
-
 
 submitBtn.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -52,7 +52,6 @@ function Book(author, title, numPages, isFinished) {
 function addBookToLibrary(a, b, c, d) {
   const book = new Book(a, b, c, d);
   myLibrary.push(book);
-  console.log(myLibrary);
 }
 
 
